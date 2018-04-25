@@ -1,7 +1,19 @@
+//const baseURL = 'http://localhost:3000'
+
+(function() {
+  'use strict';
+
 const baseURL = 'http://localhost:3000'
+  request(`${baseURL}`)
+  .then(function(response){
+    // user is authenticated
 
+  })
+  .catch(function(error){
+    // user is not authenticated
+  })
 
-axios.get(`${baseURL}/recipes`)
+axios.get(`${baseURL}/recipe`)
   .then(result => {
     let newDiv = document.createElement("div");
     let currentDiv = document.getElementById("recipesContainer");
@@ -47,6 +59,7 @@ function getRecipe(myRecipe){
 
 /////////////////// Create New Recipe Button /////////////
 let button = document.querySelector('#createButton')
-  button.addEventListener('click', function(e) {
-  window.location = "createRecipe.html"
-})
+//   // button.addEventListener('click', function(e) {
+//   // window.location = "createRecipe.html"
+// })
+})();

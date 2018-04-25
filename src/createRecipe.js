@@ -1,3 +1,20 @@
+
+(function() {
+  'use strict';
+
 const baseURL = 'http://localhost:3000'
 
-axios.post(`${baseURL}/recipes/`)
+  request(`${baseURL}`)
+  .then(function(response){
+    // user is authenticated
+
+  })
+  .catch(function(error){
+    // user is not authenticated
+  })
+
+
+
+axios.post(`${baseURL}/recipe/`)
+
+})();

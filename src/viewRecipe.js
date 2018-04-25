@@ -9,7 +9,7 @@ function getThisRecipe(myRecipe) {
   let ingredList = document.querySelector('#ingredients')
   let directions = document.querySelector('#instructions')
 
-  axios.get(`${baseURL}/recipes/` + id )
+  axios.get(`${baseURL}/recipe/` + id )
     .then(result => {
     let myRecipe = result.data
     title.innerText = myRecipe.name
