@@ -1,24 +1,26 @@
-const baseURL = 'http://localhost:3000'
+
+const searchString = window.location.search.slice(1).split('&').map(ele => {
+  const [key, value] = ele.split('=')
+  return { [key]: value }
+}).reduce((acc, ele) => ({...acc, ...ele }))
 
 
-//
-// function getThisRecipe(myRecipe) {
-//   let id = window.location.search.slice(4)
-//   let title = document.querySelector("#createHead")
-//   let recPic = document.querySelector('#recipePic')
-//   let ingredList = document.querySelector('#ingredients')
-//   let directions = document.querySelector('#instructions')
-//
-//   axios.get(//`${baseURL}/recipe/` + id )
-//    .then(result => {
-//     let myRecipe = result.data
-//     title.innerText = myRecipe.name
-//     recPic.setAttribute('src', result.data.picture)
-//     ingredList.innerText = "Ingredients are a coming soon feature"
-//     directions.innerText = myRecipe.instructions
-//   })
-// }
-//
-//
-//
-// getThisRecipe()
+
+
+request("/auth/token")
+  .then(function (res) {
+    return request(`/users/${res.data.id}/recipes/${searchString.id}`)
+  })
+  .then(function (res) {
+    let data= res.data
+    console.log(data)
+    let title = document.querySelector("#createHead")
+    let recPic = document.querySelector('#recipePic')
+    let ingredList = document.querySelector('#ingredients')
+    let directions = document.querySelector('#instructions')
+
+    title.innerText = data.data.recName
+    recPic.setAttribute('src', data.data.picture)
+    ingredList.innerText = data.data.ingredients
+    directions.innerText = data.data.instructions
+  })

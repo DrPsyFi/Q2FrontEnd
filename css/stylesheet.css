@@ -35,24 +35,20 @@
   font-family: fantasy;
 }
 
+
+
 body {
   background-color: gray;
   font-family:fantasy;
   font-size-adjust: auto;
 }
 
-.card-body {
-  text-align: center;
-  font-weight: bold;
-  font-family: fantasy;
-  font-size: 25px;
-}
 
 .heading {
   margin-top: 15px;
   margin-bottom: 10px;
   font-weight: bolder;
-  font-size: 25px;
+  font-size: 45px;
 }
 
 .thumbnail {
@@ -127,8 +123,14 @@ body {
    border: 5px solid black;
 
 }
-.card {
+
+div.row.card-parent {
+  display:inline-block;
+}
+.cardBox {
   border: 5px solid black;
+  width:450px;
+  height: auto;
 }
 
 .space{
@@ -140,9 +142,9 @@ body {
 
 .card-img-top {
   height: auto;
-  width: 385px;
+  width: 440px;
 }
 .card-title {
-  font-size: 35px;
+  font-size: 40px;
   font-weight: bold;
 }
