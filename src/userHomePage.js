@@ -24,10 +24,12 @@
         let buttonText = document.createTextNode("View Recipe")
           viewButton.classList.add("btn-dark")
           viewButton.appendChild(buttonText)
+          console.log("params",res.data.data[i].id )
           viewButton.addEventListener('click', function() {
+
             window.location = "viewRecipe.html?id="+res.data.data[i].id
 
-            console.log("params",res.data.data[i].id )
+
 
             })
 

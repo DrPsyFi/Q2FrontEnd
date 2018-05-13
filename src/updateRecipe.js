@@ -11,6 +11,7 @@ request("/auth/token")
     return request(`/users/${res.data.id}/recipes/${searchString.id}`)
   })
   .then(function (res) {
+
     let data= res.data
     let title = document.querySelector("#createHead")
     let recPic = document.querySelector('#recipePic')

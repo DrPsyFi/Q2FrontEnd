@@ -12,6 +12,7 @@ request("/auth/token")
   })
   .then(function (res) {
     let data= res.data
+    const updateButton = document.querySelector("#update")
     let title = document.querySelector("#createHead")
     let recPic = document.querySelector('#recipePic')
     let ingredList = document.querySelector('#ingredients')
@@ -20,6 +21,9 @@ request("/auth/token")
     recPic.setAttribute('src', data.data.picture)
     ingredList.innerHTML = data.data.ingredients
     directions.innerHTML = data.data.instructions
+    updateButton.addEventListener('click', () => {
+      window.location = 'updateRecipe.html'+ res.data.data[i].id
+    })
   })
 //////////////////////////////////////////////////////////////////////////////
 //////                   View Notes                              /////////////
@@ -96,10 +100,11 @@ const noteButton = document.querySelector("#addNote")
   //////////////////////////////////////////////////////////////////////////////
   ////                    Update Recipe                                     ////
   //////////////////////////////////////////////////////////////////////////////
-
-
-const updateButton = document.querySelector("#update")
-
-  updateButton.addEventListener('click', () => {
-    window.location = 'updateRecipe.html'
-  })
+//
+//  let id = res.data.data[i].id
+//
+// const updateButton = document.querySelector("#update")
+//
+//   updateButton.addEventListener('click', () => {
+//     window.location = 'updateRecipe.html'+ res.data.data[i].id
+//   })
