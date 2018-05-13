@@ -125,12 +125,15 @@ body {
 }
 
 div.row.card-parent {
-  display:inline-block;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 .cardBox {
   border: 5px solid black;
   width:450px;
   height: auto;
+  text-align: center;
 }
 
 .space{
