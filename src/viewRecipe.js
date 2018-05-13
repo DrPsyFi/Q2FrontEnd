@@ -68,7 +68,7 @@ const noteButton = document.querySelector("#addNote")
       noteForm.appendChild(noteSubmit)
 
       noteParentDiv.appendChild(noteForm)
-      console.log("IN HERE MY MAN");
+
 
     noteForm.addEventListener('submit', (event) => {
 
@@ -79,9 +79,27 @@ const noteButton = document.querySelector("#addNote")
     request('/auth/token')
 
       .then((response)=>{
-        return request(`/users/${response.data.id}/recipes/${searchString.id}/notes`, 'post' ,  `noteInput`  )
-   })
+        return request(`/users/${response.data.id}/recipes/${searchString.id}/notes`, 'post' ,   {notes:noteInput})
+        .then(function(response){
+          alert("Note Added")
+          window.location = 'userHomePage.html'
+          return response.status(200)
+        })
+        .catch(function(error){
+
+          alert("You must fill in the blanks to create a recipe. If you changed your mind navigate back to your home page in the navigation bar")
+        })
+      })
+    })
+  })
+
+  //////////////////////////////////////////////////////////////////////////////
+  ////                    Update Recipe                                     ////
+  //////////////////////////////////////////////////////////////////////////////
 
 
-   })
- })
+const updateButton = document.querySelector("#update")
+
+  updateButton.addEventListener('click', () => {
+    window.location = 'updateRecipe.html'
+  })

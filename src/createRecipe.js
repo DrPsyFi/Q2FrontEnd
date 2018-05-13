@@ -3,7 +3,7 @@
 
     document.querySelector("#newRecipe").addEventListener('submit', function(event){
       event.preventDefault()
-      console.log("hello")
+
       const recipeName = event.target.recipeName.value
       const recipeInstructions = event.target.recipeInstructions.value
       const recipeIngredients = event.target.recipeIngredients.value
@@ -13,17 +13,16 @@
 
       request('/auth/token')
       .then((response)=>{
-        return response(`/users/${response.data.id}/recipes`, 'post', { recipeName , recipeInstructions, recipeIngredients, recipePicture})
+        return request(`/users/${response.data.id}/recipes`, 'post', { recipeName , recipeInstructions, recipeIngredients, recipePicture})
       })
+        .then(function(response){
+          alert("Sucessful Recipe Addition")
+          window.location = 'userHomePage.html'
 
+          return response.status(200)
+        })
+        .catch(function(error){
+
+        alert("You must fill in the blanks to create a recipe. If you changed your mind navigate back to your home page in the navigation bar")
+      })
   })
-  //     .then(function(res){
-  //
-  //     res.status(200)
-  //       window.location = 'userHomePage.html'
-  //     })
-  //     .catch(function(error){
-  //
-  //       alert("You must fill in the blanks to create a recipe. If you changed your mind navigate back to your home page in the navigation bar")
-  //     })
-  // })

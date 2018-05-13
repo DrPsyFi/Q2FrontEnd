@@ -45,6 +45,6 @@
 let createButton = document.querySelector("#create")
 
   createButton.addEventListener("click", function() {
-  
+
     window.location = "createRecipe.html"
   })
