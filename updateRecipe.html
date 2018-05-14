@@ -27,38 +27,36 @@
 <body>
   <nav class="navbar navbar-dark bg-dark justify-content-between">
     <a id="brand" class="navbar-brand">Your Recipe Box</a>
-    <button id="update" type="button" class="btn btn-secondary">Update Recipe</button>
-    <form class="form-inline">
 
-    </form>
+    <button id="delete" type="button" class="btn btn-danger">Click to Delete</button>
   </nav>
-  <div class="container">
-    <div id="createHead">Your Selected Recipe</div>
-    <div class="row">
-    </div>
+
+
+  <form class="form-inline" id="saveUpdate">
     <div class="container">
-      <div class="container">
-        <img id="recipePic"></img>
+      <div id="createHead">Your Selected Recipe</div>
+      <div class="row">
       </div>
       <div class="container">
-        <p class='heading'>Ingredients</p>
-        <p id="ingredients">Ingredients</p>
-      </div>
-      <div class="container">
-        <p class='heading'>Instructions</p>
-        <p id="instructions">Instructions</p>
+        <div class="container">
+          <img id="recipePic"></img>
+        </div>
+        <div class="container">
+          <p class='heading'>Ingredients</p>
+          <p id="ingredients" contenteditable="true">Ingredients</p>
+        </div>
+        <div class="container">
+          <p class='heading'>Instructions</p>
+          <p id="instructions" contenteditable="true">Instructions</p>
+
+        </div>
 
       </div>
-      <div class="container">
-        <p class='heading'>Notes</p>
-        <div id="notes"></div>
+      <div id="buttonRow" class="row center">
+        <button type="submit" class="btn btn-secondary">Save Update</button>
 
       </div>
-    </div>
-    <div id="buttonRow" class="row center">
-      <button id="addNote" type="button" class="btn btn-secondary">Add Note</button>
-      <button id="home" type="button" class="btn btn-secondary">Go Home</button>
-    </div>
+  </form>
 </body>
 
 </html>

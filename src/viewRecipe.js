@@ -12,18 +12,21 @@ request("/auth/token")
   })
   .then(function (res) {
     let data= res.data
-    const updateButton = document.querySelector("#update")
     let title = document.querySelector("#createHead")
     let recPic = document.querySelector('#recipePic')
     let ingredList = document.querySelector('#ingredients')
     let directions = document.querySelector('#instructions')
+
+    const updateButton = document.querySelector("#update")
+
+    updateButton.addEventListener('click', () => {
+      window.location = "updateRecipe.html?id="+res.data.data.id
+    })
+
     title.innerHTML = data.data.recName
     recPic.setAttribute('src', data.data.picture)
     ingredList.innerHTML = data.data.ingredients
     directions.innerHTML = data.data.instructions
-    updateButton.addEventListener('click', () => {
-      window.location = 'updateRecipe.html'+ res.data.data[i].id
-    })
   })
 //////////////////////////////////////////////////////////////////////////////
 //////                   View Notes                              /////////////
@@ -35,12 +38,10 @@ request("/auth/token")
   })
   .then(function (res) {
     let notes= res.data.data
-    console.log(notes)
     let notesBox = document.querySelector("#notes")
 
 
     notes.map(note => {
-
       let noteEle = document.createElement("p")
       noteInfo = note.notes
       noteEle.innerHTML = noteInfo
@@ -87,10 +88,8 @@ const noteButton = document.querySelector("#addNote")
         .then(function(response){
           alert("Note Added")
           window.location = 'userHomePage.html'
-          return response.status(200)
         })
         .catch(function(error){
-
           alert("You must fill in the blanks to create a recipe. If you changed your mind navigate back to your home page in the navigation bar")
         })
       })
@@ -100,11 +99,11 @@ const noteButton = document.querySelector("#addNote")
   //////////////////////////////////////////////////////////////////////////////
   ////                    Update Recipe                                     ////
   //////////////////////////////////////////////////////////////////////////////
-//
-//  let id = res.data.data[i].id
-//
-// const updateButton = document.querySelector("#update")
-//
-//   updateButton.addEventListener('click', () => {
-//     window.location = 'updateRecipe.html'+ res.data.data[i].id
-//   })
+
+
+
+const updateButton = document.querySelector("#update")
+
+  updateButton.addEventListener('click', () => {
+    window.location = 'updateRecipe.html' +res.data.data[i].id
+  })
