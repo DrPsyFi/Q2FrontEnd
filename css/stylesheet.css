@@ -9,6 +9,15 @@
   margin-top: 20px;
 }
 
+#createHead {
+  margin-top: 20px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 45px;
+  font-family: fantasy;
+
+}
+
 #createButton {
   margin-top: 30px;
 }
@@ -131,6 +140,7 @@ div.row.card-parent {
 }
 .cardBox {
   border: 5px solid black;
+  margin: 10px;
   width:450px;
   height: auto;
   text-align: center;
@@ -148,6 +158,18 @@ div.row.card-parent {
   width: 440px;
 }
 .card-title {
+  margin: 10px;
   font-size: 40px;
   font-weight: bold;
+}
+.btn-dark {
+  margin: 10px;
+}
+
+.form-group {
+  font-size: 40px;
+}
+
+.inputText {
+  font-size: 25px;
 }

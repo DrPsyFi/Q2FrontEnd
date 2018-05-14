@@ -38,6 +38,7 @@ request("/auth/token")
   })
   .then(function (res) {
     let notes= res.data.data
+    
     let notesBox = document.querySelector("#notes")
 
 

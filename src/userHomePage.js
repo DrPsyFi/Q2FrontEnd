@@ -17,6 +17,7 @@ request("/auth/token")
       recipePicture.setAttribute("src", pic)
 
     let title= document.createElement("p")
+      title.classList.add("card-title")
       title.innerText = name
 
     let viewButton = document.createElement("button")
