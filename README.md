@@ -42,4 +42,4 @@ user recipes.
  * A Recipe can be deleted on the Update Page.  
 
 
- Happy Eating!
+ ## Happy Eating!
