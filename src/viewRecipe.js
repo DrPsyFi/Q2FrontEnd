@@ -38,7 +38,7 @@ request("/auth/token")
   })
   .then(function (res) {
     let notes= res.data.data
-    
+
     let notesBox = document.querySelector("#notes")
 
 
@@ -60,8 +60,10 @@ const noteButton = document.querySelector("#addNote")
 
   let noteForm= document.createElement("form")
 
-  let noteEle = document.createElement("input")
+  let noteEle = document.createElement("textarea")
       noteEle.setAttribute("name", "noteInput")
+        noteEle.setAttribute("rows", 3)
+        noteEle.setAttribute("cols", 125)
 
   let noteSubmit = document.createElement("button")
       noteSubmit.setAttribute("type", "submit")
@@ -88,7 +90,9 @@ const noteButton = document.querySelector("#addNote")
         return request(`/users/${response.data.id}/recipes/${searchString.id}/notes`, 'post' ,   {notes:noteInput})
         .then(function(response){
           alert("Note Added")
-          window.location = 'userHomePage.html'
+
+          window.location.reload()
+          //window.location = 'userHomePage.html'
         })
         .catch(function(error){
           alert("You must fill in the blanks to create a recipe. If you changed your mind navigate back to your home page in the navigation bar")

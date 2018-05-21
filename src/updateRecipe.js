@@ -1,7 +1,7 @@
 
 const searchString = window.location.search.slice(1).split('&').map(ele => {
   const [key, value] = ele.split('=')
-  console.log({ [key]: value } , "id value");
+
   return { [key]: value }
   }).reduce((acc, ele) => ({...acc, ...ele }))
 
@@ -39,7 +39,8 @@ document.querySelector("#saveUpdate").addEventListener('submit', function(event)
   })
   .then(function(response){
     alert("Sucessful Update")
-    window.location = 'userHomePage.html'
+    window.location.reload()
+    //window.location = 'userRecipe.html'
 
     })
   .catch(function(error){
@@ -54,10 +55,13 @@ document.querySelector("#delete").addEventListener('click', function() {
 
   request('/auth/token')
     .then((response)=>{
+        console.log("hello", response.data.id, searchString.id)
       return request(`/users/${response.data.id}/recipes/${searchString.id}`, 'delete')
     })
     .then(function(response){
+      console.log(response, "down here")
       alert("Sucessful Delete")
+
       window.location = 'userHomePage.html'
     })
   .catch(function(error){

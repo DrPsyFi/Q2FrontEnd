@@ -4,7 +4,9 @@
   font-size-adjust: auto;
   color: white;
 }
-
+#addNote {
+  margin: 20px;
+}
 #recipesContainer {
   margin-top: 20px;
 }
@@ -28,6 +30,14 @@
   font-weight: bold;
   font-size: 35px;
   font-family: fantasy;
+}
+
+#ingredients {
+  font-size: 30px;
+}
+
+#instructions {
+  font-size: 30px;
 }
 
 #Header {
@@ -66,7 +76,8 @@ body {
 
 #recipePic {
   display: block;
-  margin: auto;
+  height: auto;
+  max-width: 1000px;
 }
 
 .title {

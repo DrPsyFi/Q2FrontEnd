@@ -6,7 +6,7 @@ function request(path, method = 'get', body = null) {
     bearerToken = `Bearer ${token}`
   }
 
-  return axios(`https://frozen-mesa-66942.herokuapp.com${path}`, {
+return axios(`http://localhost:3000${path}`, {
     method: method,
     headers: {
       'Content-Type': 'application/json',
@@ -16,3 +16,4 @@ function request(path, method = 'get', body = null) {
     data: body
   })
 }
+//return axios(`https://frozen-mesa-66942.herokuapp.com${path}`, {
