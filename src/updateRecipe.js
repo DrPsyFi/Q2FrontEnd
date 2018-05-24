@@ -39,8 +39,8 @@ document.querySelector("#saveUpdate").addEventListener('submit', function(event)
   })
   .then(function(response){
     alert("Sucessful Update")
-    window.location.reload()
-    //window.location = 'userRecipe.html'
+    window.location = 'userHomePage.html'
+    
 
     })
   .catch(function(error){
